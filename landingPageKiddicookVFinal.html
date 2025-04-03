@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidiCook - Guide gratuit pour cuisiner en famille</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://res.cloudinary.com/dbjkxw7ej/image/upload/v1743603429/Group_3_vpdvuv.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+  :root {
+    --rouge-flash: #F22e52;     /* 🍓 Rouge fruité */
+    --rouge-fonce: #04c4d9;     /* 🍒 bleu fonce */
+    --bleu-marine: #f2bb16;     /* 🍋 Jaune  */
+    --bleu-clair: #f2a007;      /* 🌊 orange */
+    --jaune-pop: #99e9f2;       /* 💙 Bleu clair */
+}
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--jaune-pop);
+        }
+        .title-font {
+            font-family: 'Fredoka One', cursive;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bleu-clair) 0%, var(--rouge-flash) 100%);
+            color: white;
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 16px;
+            padding: 12px 24px;
+            font-weight: bold;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(242, 5, 68, 0.3);
+        }
+        .ebook-mockup { perspective: 1000px; transform-style: preserve-3d; }
+        .ebook-mockup img {
+            transform: rotateY(-15deg);
+            box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+        .ebook-mockup:hover img { transform: rotateY(-5deg); }
+        .benefit-item {
+            background: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--bleu-clair);
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .text-chocolat { color: var(--bleu-marine); }
+        .text-orange-doux { color: var(--rouge-flash); }
+        .text-pomme { color: var(--bleu-clair); }
+        .text-bleu { color: var(--bleu-clair); }
+        .text-rouge { color: var(--rouge-flash); }
+        .text-turquoise { color: var(--bleu-clair); }
+        .text-jaune { color: var(--jaune-pop); }
+
+        .bg-bleu-clair { background-color: #E0F7FA; }
+        .from-pomme { background-color: var(--bleu-clair); }
+        .to-orange { background-color: var(--rouge-flash); }
+    </style>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://res.cloudinary.com/dbjkxw7ej/image/upload/v1743681340/KidiCook_1_1_1_d03e3c.svg" alt="Logo KidiCook" class="w-23 h-20 mr-2">
+                
+            </div>
+            <nav class="hidden md:block" aria-label="Navigation principale">
+    <ul class="flex space-x-6">
+        <li>
+            <a href="#" class="text-gray-700 hover:text-orange-doux font-bold">
+                Accueil
+            </a>
+        </li>
+        <li>
+            <a href="#" class="text-gray-700 hover:text-orange-doux font-bold">
+                À propos
+            </a>
+        </li>
+        <li>
+            <a href="#" class="text-gray-700 hover:text-orange-doux font-bold">
+                Contact
+            </a>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 md:py-20 bg-gradient-to-r from-creme to-bleu">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="title-font text-4xl md:text-5xl lg:text-6xl text-rouge mb-6">
+                    🎁 Téléchargez gratuitement notre guide pour cuisiner en famille avec plaisir !
+                </h1>
+                <p class="text-xl text-gray-700 mb-8">
+                    Découvrez comment transformer la cuisine en un moment de complicité et d'apprentissage avec vos enfants !
+                </p>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg max-w-md border-2 border-chocolat">
+                    <h3 class="font-bold text-xl mb-4 text-chocolat">Je télécharge mon ebook</h3>
+                    <form class="space-y-4" id="ebookForm">
+            <div>
+                <label class="block text-gray-700 mb-2">Votre prénom</label>
+                <input type="text" id="prenom" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pomme">
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2">Votre email</label>
+                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pomme">
+            </div>
+            <button type="submit" id="submitBtn" class="btn-primary text-white font-bold py-3 px-6 rounded-lg w-full">
+                <span id="btnText">Je télécharge mon ebook <i class="fas fa-download ml-2"></i></span>
+            </button>
+            <p class="text-green-600 font-semibold hidden" id="confirmationMessage">Merci ! Votre ebook arrive dans votre boite mail ✉️</p>
+        </form>
+                    <p class="text-xs text-gray-500 mt-3">
+                        Nous respectons votre vie privée. Vous pouvez vous désinscrire à tout moment.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center ebook-mockup">
+                <div class="relative floating">
+                    <img src="https://res.cloudinary.com/dbjkxw7ej/image/upload/v1743667445/20250402_1712_Recette_Enfants___Roul%C3%A9s_Confiture_remix_01jqvgydvwexmav8dewr2k7fzz_wxgcvk_c_crop_ar_4_3_tq9mdc.png" 
+                         alt="Enfant qui cuisine joyeusement" 
+                         class="rounded-xl w-full max-w-md border-8 border-white">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border-2 border-chocolat">
+                        <div class="text-center">
+                            <div class="text-chocolat font-bold text-xl">Le petit guide des super-chefs en culottes courtes</div>
+                            <div class="text-gray-600">5 recettes faciles + 5 astuces pour cuisiner en famille avec plaisir !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl text-center text-chocolat mb-12">
+                Ce que vous allez découvrir dans ce guide
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="benefit-item p-6">
+                    <div class="text-pomme text-3xl mb-4">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Éveil des sens</h3>
+                    <p class="text-gray-600">
+                        Des activités adaptées pour développer les 5 sens de votre enfant tout en s'amusant.
+                    </p>
+                </div>
+                
+                <div class="benefit-item p-6">
+                    <div class="text-orange text-3xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Plaisir partagé</h3>
+                    <p class="text-gray-600">
+                        Créez des souvenirs inoubliables autour de moments culinaires complices.
+                    </p>
+                </div>
+                
+                <div class="benefit-item p-6">
+                    <div class="text-chocolat text-3xl mb-4">
+                        <i class="fas fa-carrot"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Nutrition équilibrée</h3>
+                    <p class="text-gray-600">
+                        Initiez vos enfants à une alimentation saine sans qu'ils s'en rendent compte.
+                    </p>
+                </div>
+                
+                <div class="benefit-item p-6">
+                    <div class="text-bleu text-3xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Gain de temps</h3>
+                    <p class="text-gray-600">
+                        Des recettes rapides à préparer ensemble après l'école ou le week-end.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-bleu-clair">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl text-center text-gray-800 mb-12">
+                Pourquoi cuisiner en famille ?
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="benefit-item p-6">
+                    <div class="text-rouge text-4xl mb-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Développement cognitif</h3>
+                    <p class="text-gray-600">
+                        Mesures, logique et créativité stimulent le cerveau des enfants.
+                    </p>
+                </div>
+                
+                <div class="benefit-item p-6">
+                    <div class="text-turquoise text-4xl mb-4">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Alimentation saine</h3>
+                    <p class="text-gray-600">
+                        Les enfants qui cuisinent mangent plus de fruits et légumes.
+                    </p>
+                </div>
+                
+                <div class="benefit-item p-6">
+                    <div class="text-jaune text-4xl mb-4">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Confiance en soi</h3>
+                    <p class="text-gray-600">
+                        Voir le résultat de leurs efforts renforce leur estime.
+                    </p>
+                </div>
+                
+                <div class="benefit-item p-6">
+                    <div class="text-orange text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Liens familiaux</h3>
+                    <p class="text-gray-600">
+                        Des moments complices qui créent des souvenirs durables.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonial -->
+    <section class="py-16 bg-bleu">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="text-chocolat text-5xl mb-4">"</div>
+                <p class="text-xl italic text-gray-700 mb-6">
+                    Grâce aux recettes de KidiCook, mon fils de 7 ans qui refusait de manger des légumes a préparé lui-même une soupe et a adoré ! Les astuces pour impliquer les enfants sont vraiment géniales.
+                </p>
+                <div class="flex items-center justify-center">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Parent satisfait" class="w-12 h-12 rounded-full mr-4 border-2 border-chocolat">
+                    <div>
+                        <div class="font-bold text-chocolat">Sophie D.</div>
+                        <div class="text-sm text-gray-600">Maman de Lucas, 7 ans</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="py-16 bg-gradient-to-r from-pomme to-orange">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-3xl md:text-4xl text-white mb-6">
+                Ce qui arrive bientôt chez KidiCook !
+            </h2>
+            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+                Nous préparons des ateliers culinaires en ligne spécialement conçus pour les enfants de 5 à 12 ans. Soyez les premiers informés du lancement !
+            </p>
+            <button class="bg-chocolat text-white font-bold py-3 px-8 rounded-lg inline-flex items-center hover:bg-opacity-90 transition">
+                Je veux être informé·e de l'ouverture <i class="fas fa-bell ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-utensils text-2xl text-chocolat mr-2"></i>
+                        <span class="title-font text-xl text-chocolat">KidiCook</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">
+                        L'éducation alimentaire ludique pour les enfants de 5 à 12 ans.
+                    </p>
+                </div>
+                
+                <div class="flex space-x-4 mb-4 md:mb-0">
+                    <a href="#" class="text-gray-600 hover:text-orange text-xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-orange text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-orange text-xl">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+                
+                <div class="text-sm text-gray-500">
+                    <a href="#" class="hover:text-chocolat mr-4">Mentions légales</a>
+                    <a href="#" class="hover:text-chocolat">Politique de confidentialité</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-6 pt-6 text-center text-sm text-gray-500">
+                © 2023 KidiCook. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('ebookForm');
+            const prenom = document.getElementById('prenom');
+            const email = document.getElementById('email');
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const message = document.getElementById('confirmationMessage');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (prenom.value.trim() === '' || email.value.trim() === '') {
+                    alert('Veuillez remplir tous les champs');
+                    return;
+                }
+                if (!email.value.includes('@')) {
+                    alert('Veuillez entrer une adresse email valide');
+                    return;
+                }
+                btn.disabled = true;
+                btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
+                setTimeout(() => {
+                    message.classList.remove('hidden');
+                    btn.disabled = false;
+                    btnText.innerHTML = 'Je télécharge mon ebook <i class="fas fa-download ml-2"></i>';
+                    form.reset();
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
